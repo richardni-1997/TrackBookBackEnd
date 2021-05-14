@@ -12,5 +12,4 @@ public interface GoalRepository extends JpaRepository<Goal, String> {
 	//Goal findById(int id);
 	List<Goal> findAll();
 	Optional<Goal> findByEmail(String email); 
-
 }
