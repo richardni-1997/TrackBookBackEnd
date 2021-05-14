@@ -1,4 +1,7 @@
+<<<<<<< HEAD
+=======
 
+>>>>>>> df9b424f8fb28b4548ccfd225d50ab88f397405e
 package TrackBook.TrackBookAPI.Repositories;
 
 import java.util.List;
@@ -14,3 +17,7 @@ public interface UserRepository extends JpaRepository <Users, String>{
 	  Optional<Users> findByEmailContaining(String email);
 
 }
+<<<<<<< HEAD
+
+=======
+>>>>>>> df9b424f8fb28b4548ccfd225d50ab88f397405e

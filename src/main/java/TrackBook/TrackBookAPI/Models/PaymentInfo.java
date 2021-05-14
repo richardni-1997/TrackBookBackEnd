@@ -17,6 +17,9 @@ public class PaymentInfo {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long paymentId;
 	
+<<<<<<< HEAD
+	@Column
+=======
 	
 	public long getPaymentId() {
 		return paymentId;
@@ -24,6 +27,7 @@ public class PaymentInfo {
 	public void setPaymentId(long paymentId) {
 		this.paymentId = paymentId;
 	}
+>>>>>>> df9b424f8fb28b4548ccfd225d50ab88f397405e
 	private String email;
 	
 	@Column
@@ -53,6 +57,25 @@ public class PaymentInfo {
 		this.depositAmount = depositAmount;
 		this.depositSchedule = depositSchedule;
 	}
+	
+	public PaymentInfo(long paymentId, String email, String goalName, double depositAmount, Date depositSchedule) {
+		super();
+		this.paymentId = paymentId;
+		this.email = email;
+		this.goalName = goalName;
+		this.depositAmount = depositAmount;
+		this.depositSchedule = depositSchedule;
+	}
+	
+	public long getPaymentId() {
+		return paymentId;
+	}
+
+	public void setPaymentId(long paymentId) {
+		this.paymentId = paymentId;
+	}
+
+	
 
 	public String getEmail() {
 		return email;
@@ -85,9 +108,12 @@ public class PaymentInfo {
 	public void setDepositSchedule(Date depositSchedule) {
 		this.depositSchedule = depositSchedule;
 	}
+	
 	@Override
 	public String toString() {
-		return "PaymentInfo [email=" + email + ", goalName=" + goalName + ", depositAmount=" + depositAmount
-				+ ", depositSchedule=" + depositSchedule + "]";
+		return "PaymentInfo [paymentId=" + paymentId + ", email=" + email + ", goalName=" + goalName
+				+ ", depositAmount=" + depositAmount + ", depositSchedule=" + depositSchedule + "]";
 	}
+	
+	
 }
