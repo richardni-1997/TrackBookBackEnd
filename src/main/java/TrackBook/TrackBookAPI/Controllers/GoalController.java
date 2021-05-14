@@ -25,12 +25,19 @@ import TrackBook.TrackBookAPI.Repositories.GoalRepository;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/")
+@RequestMapping("/api")
 public class GoalController {
 	@Autowired
 	GoalRepository goalRepository;
 	
-	@GetMapping("goals/{email}")
+	//get all goals
+		 @GetMapping("/goals")
+		 public List<Goal> getAllGoals(){
+			 return goalRepository.findAll();
+		 }
+	
+		 // get goal by email
+	@GetMapping("/goals/{email}")
 	public ResponseEntity<Goal> getGoalByEmail(@PathVariable("email") String email)
 	{
 		Optional<Goal> goalData = goalRepository.findByEmail(email);
@@ -46,7 +53,7 @@ public class GoalController {
 	}
 	
 	
-	
+	// add new goals
 	@PostMapping("/goals")
 	public ResponseEntity<Goal> createGoal(@RequestBody Goal goal) 
 	{
@@ -63,7 +70,7 @@ public class GoalController {
 	    }
 	}
 	
-	
+	// update goal
 	@PutMapping("/goals/{email}")
 	
 	public ResponseEntity<Goal> updateGoal(@PathVariable("email") String email, @RequestBody Goal goal)

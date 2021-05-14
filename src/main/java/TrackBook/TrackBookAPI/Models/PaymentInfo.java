@@ -17,7 +17,17 @@ public class PaymentInfo {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long paymentId;
 	
+<<<<<<< HEAD
 	@Column
+=======
+	
+	public long getPaymentId() {
+		return paymentId;
+	}
+	public void setPaymentId(long paymentId) {
+		this.paymentId = paymentId;
+	}
+>>>>>>> df9b424f8fb28b4548ccfd225d50ab88f397405e
 	private String email;
 	
 	@Column
@@ -31,6 +41,14 @@ public class PaymentInfo {
 	
 	public PaymentInfo() {
 		
+	}
+	public PaymentInfo(long paymentId, String email, String goalName, double depositAmount, Date depositSchedule) {
+		super();
+		this.paymentId = paymentId;
+		this.email = email;
+		this.goalName = goalName;
+		this.depositAmount = depositAmount;
+		this.depositSchedule = depositSchedule;
 	}
 	public PaymentInfo(String email, String goalName, double depositAmount, Date depositSchedule) {
 		super();
