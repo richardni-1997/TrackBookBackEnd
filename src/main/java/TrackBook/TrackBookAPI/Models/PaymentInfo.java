@@ -23,12 +23,6 @@ public class PaymentInfo {
 	@Column
 	private Date depositSchedule;
 	
-	
-	@Override
-	public String toString() {
-		return "PaymentInfo [email=" + email + ", goalName=" + goalName + ", depositAmount=" + depositAmount
-				+ ", depositSchedule=" + depositSchedule + "]";
-	}
 	public PaymentInfo() {
 		
 	}
@@ -71,5 +65,9 @@ public class PaymentInfo {
 	public void setDepositSchedule(Date depositSchedule) {
 		this.depositSchedule = depositSchedule;
 	}
-	
+	@Override
+	public String toString() {
+		return "PaymentInfo [email=" + email + ", goalName=" + goalName + ", depositAmount=" + depositAmount
+				+ ", depositSchedule=" + depositSchedule + "]";
+	}
 }
