@@ -40,10 +40,25 @@ public class GoalController {
 		 }
 	
 		 // get goal by email
-	@GetMapping("/goals/{email}")
-	public ResponseEntity<Goal> getGoalByEmail(@PathVariable("email") String email)
+//	@GetMapping("/goals/{email}")
+//	public ResponseEntity<Goal> getGoalByEmail(@PathVariable("email") String email)
+//	{
+//		Optional<Goal> goalData = goalRepository.findByEmail(email);
+//
+//	    if (goalData.isPresent()) 
+//	    {
+//	      return new ResponseEntity<>(goalData.get(), HttpStatus.OK);
+//	    } 
+//	    else 
+//	    {
+//	      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//	    }
+//	}
+	
+	@GetMapping("/goals/{goalId}")
+	public ResponseEntity<Goal> getGoalByGoalId(@PathVariable("goalId") long goalId)
 	{
-		Optional<Goal> goalData = goalRepository.findByEmail(email);
+		Optional<Goal> goalData = goalRepository.findByGoalId(goalId);
 
 	    if (goalData.isPresent()) 
 	    {
@@ -105,3 +120,34 @@ public class GoalController {
 	
 }
 	
+////update goal
+//	@PutMapping("/goals/{id}")
+//	
+//	public ResponseEntity<Goal> updateGoalId(@PathVariable("id") int id, @RequestBody Goal goal)
+//	
+//	{
+//	    Optional<Goal> goalData = goalRepository.findByGoalId(goalId);
+//		
+//
+//	    if (goalData.isPresent()) 
+//	    {
+//	    	Goal _goal = goalData.get();
+//	    	_goal.setEmail(goal.getEmail());
+//	    	_goal.setName(goal.getName());
+//	    	_goal.setDescription(goal.getDescription());
+//	    	_goal.setStartDate(goal.getStartDate());
+//	    	_goal.setTargetDate(goal.getTargetDate());
+//	    	_goal.setCurrentSavings(goal.getCurrentSavings());
+//	    	_goal.setTargetSavings(goal.getTargetSavings());
+//	    	_goal.setPriority(goal.getPriority());
+//	      
+//	    	return new ResponseEntity<>(goalRepository.save(_goal), HttpStatus.OK);
+//	    } 
+//	    else 
+//	    {
+//	      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//	    }
+//	 }
+//
+//	
+//}

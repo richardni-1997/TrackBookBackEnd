@@ -46,11 +46,11 @@ public class Goal {
 		this.priority = priority;
 	}
 
-	public long getGoalId() {
+	public long getgoalId() {
 		return goalId;
 	}
 
-	public void setGoalId(long goalId) {
+	public void setgoalId(long goalId) {
 		this.goalId = goalId;
 	}
 
@@ -80,11 +80,13 @@ public class Goal {
 		this.priority = priority;
 	}
 
+	
+
 	@Override
 	public String toString() {
-		return "Goal [email=" + email + ", name=" + name + ", description=" + description + ", startDate=" + startDate
-				+ ", targetDate=" + targetDate + ", currentSavings=" + currentSavings + ", targetSavings="
-				+ targetSavings + ", priority=" + priority + "]";
+		return "Goal [goalId=" + goalId + ", email=" + email + ", name=" + name + ", description=" + description
+				+ ", startDate=" + startDate + ", targetDate=" + targetDate + ", currentSavings=" + currentSavings
+				+ ", targetSavings=" + targetSavings + ", priority=" + priority + "]";
 	}
 
 	public String getEmail() {
