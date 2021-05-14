@@ -1,12 +1,4 @@
-<<<<<<< HEAD
-//package TrackBook.TrackBookAPI.Repositories;
-//
-//import org.springframework.data.jpa.repository.JpaRepository;
-//
-//public interface GoalRepository extends JpaRepository {
-//
-//}
-=======
+
 package TrackBook.TrackBookAPI.Repositories;
 
 import java.util.List;
@@ -22,4 +14,3 @@ public interface GoalRepository extends JpaRepository<Goal, String> {
 	Optional<Goal> findByEmail(String email); 
 
 }
->>>>>>> 4cb7c4de688013dbc8e6095fd0f37c9cdedebe51
