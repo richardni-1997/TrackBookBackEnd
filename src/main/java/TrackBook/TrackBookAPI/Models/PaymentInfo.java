@@ -4,6 +4,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -12,6 +14,10 @@ import javax.persistence.Table;
 public class PaymentInfo {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long paymentId;
+	
+	@Column
 	private String email;
 	
 	@Column
@@ -33,6 +39,25 @@ public class PaymentInfo {
 		this.depositAmount = depositAmount;
 		this.depositSchedule = depositSchedule;
 	}
+	
+	public PaymentInfo(long paymentId, String email, String goalName, double depositAmount, Date depositSchedule) {
+		super();
+		this.paymentId = paymentId;
+		this.email = email;
+		this.goalName = goalName;
+		this.depositAmount = depositAmount;
+		this.depositSchedule = depositSchedule;
+	}
+	
+	public long getPaymentId() {
+		return paymentId;
+	}
+
+	public void setPaymentId(long paymentId) {
+		this.paymentId = paymentId;
+	}
+
+	
 
 	public String getEmail() {
 		return email;
@@ -65,9 +90,12 @@ public class PaymentInfo {
 	public void setDepositSchedule(Date depositSchedule) {
 		this.depositSchedule = depositSchedule;
 	}
+	
 	@Override
 	public String toString() {
-		return "PaymentInfo [email=" + email + ", goalName=" + goalName + ", depositAmount=" + depositAmount
-				+ ", depositSchedule=" + depositSchedule + "]";
+		return "PaymentInfo [paymentId=" + paymentId + ", email=" + email + ", goalName=" + goalName
+				+ ", depositAmount=" + depositAmount + ", depositSchedule=" + depositSchedule + "]";
 	}
+	
+	
 }

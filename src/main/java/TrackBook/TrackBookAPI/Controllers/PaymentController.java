@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import TrackBook.TrackBookAPI.Models.Goal;
 import TrackBook.TrackBookAPI.Models.PaymentInfo;
 import TrackBook.TrackBookAPI.Repositories.PaymentInfoRepository;
 
@@ -20,6 +21,7 @@ public class PaymentController {
 	@Autowired
 	PaymentInfoRepository paymentInfoRepository;
 	
+	//Get all paymentInfo entries of all Users
 	@GetMapping("/paymentInfo")
 	public ResponseEntity<List<PaymentInfo>> getAllPaymentInfo(){
 		try {
@@ -52,21 +54,52 @@ public class PaymentController {
 		}
 	}
 	
-	@PutMapping("/paymentInfo/{email}")
-	public ResponseEntity<PaymentInfo> updatePaymentInfo(@PathVariable("email") String email, @RequestBody PaymentInfo paymentInfo){
+	//Updates paymentinfo for an email
+//	@PutMapping("/paymentInfo/{email}")
+//	public ResponseEntity<PaymentInfo> updatePaymentInfo(@PathVariable("email") String email, @RequestBody PaymentInfo paymentInfo){
+//		
+//		Optional<PaymentInfo> paymentInfoData = paymentInfoRepository.findByEmail(email);
+//		
+//		if(paymentInfoData.isPresent()) {
+//			PaymentInfo _paymentInfo = paymentInfoData.get();
+//			_paymentInfo.setDepositAmount(paymentInfo.getDepositAmount());
+//			_paymentInfo.setDepositSchedule(paymentInfo.getDepositSchedule());
+//			_paymentInfo.setEmail(paymentInfo.getEmail());
+//			_paymentInfo.setGoalName(paymentInfo.getGoalName());
+//			
+//			return new ResponseEntity<>(paymentInfoRepository.save(_paymentInfo), HttpStatus.OK);
+//		}
+//		else {
+//			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//		}
+//	}
+	
+	//Gets a paymentinfo for specific paymentinfoId
+	@GetMapping("/paymentInfo/{paymentId}")
+	public ResponseEntity<PaymentInfo> getPaymentInfoById(@PathVariable("paymentId") long paymentId){
+		Optional<PaymentInfo> paymentData = paymentInfoRepository.findByPaymentId(paymentId);
 		
-		Optional<PaymentInfo> paymentInfoData = paymentInfoRepository.findByEmail(email);
+		if(paymentData.isPresent()) {
+			return new ResponseEntity<>(paymentData.get(), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	//Updates a paymentInfo for specific paymentInfoId
+	@PutMapping("/paymentInfo/{paymentId}")
+	public ResponseEntity<PaymentInfo> updatePaymentInfo(@PathVariable("paymentId") long paymentId, @RequestBody PaymentInfo paymentInfo){
+		Optional<PaymentInfo> paymentData = paymentInfoRepository.findByPaymentId(paymentId);
 		
-		if(paymentInfoData.isPresent()) {
-			PaymentInfo _paymentInfo = paymentInfoData.get();
+		if (paymentData.isPresent()) {
+			PaymentInfo _paymentInfo = paymentData.get();
 			_paymentInfo.setDepositAmount(paymentInfo.getDepositAmount());
 			_paymentInfo.setDepositSchedule(paymentInfo.getDepositSchedule());
 			_paymentInfo.setEmail(paymentInfo.getEmail());
 			_paymentInfo.setGoalName(paymentInfo.getGoalName());
 			
 			return new ResponseEntity<>(paymentInfoRepository.save(_paymentInfo), HttpStatus.OK);
-		}
-		else {
+		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}

@@ -23,9 +23,6 @@ import org.springframework.web.bind.annotation.RestController;
 import TrackBook.TrackBookAPI.Models.Goal;
 import TrackBook.TrackBookAPI.Repositories.GoalRepository;
 
-
-
-
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/")

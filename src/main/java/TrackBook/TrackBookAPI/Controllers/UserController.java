@@ -86,39 +86,4 @@ public class UserController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
-
-//	@DeleteMapping("/users/{email}")
-//	public ResponseEntity<HttpStatus> deleteUser(@PathVariable("email") String email) {
-//		try {
-//			userRepository.deleteByEmail(email);
-//			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-//		} catch (Exception e) {
-//			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-//		}
-//	}
-
-//	@DeleteMapping("/users")
-//	public ResponseEntity<HttpStatus> deleteAllUsers() {
-//		try {
-//			userRepository.deleteAll();
-//			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-//		} catch (Exception e) {
-//			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-//		}
-//
-//	}
-
-//	@GetMapping("/users/published")
-//	public ResponseEntity<List<User>> findByPublished() {
-//		try {
-//			List<User> users = userRepository.findByPublished(true);
-//
-//			if (users.isEmpty()) {
-//				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-//			}
-//			return new ResponseEntity<>(users, HttpStatus.OK);
-//		} catch (Exception e) {
-//			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-//		}
-//	}
 }
