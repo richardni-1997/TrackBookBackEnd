@@ -4,14 +4,20 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "goals")
 public class Goal {
-
+	
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long goalId;
+	
+
 	private String email;
 	
 	@Column
@@ -26,6 +32,28 @@ public class Goal {
 	@Column
 	private Date targetDate;
 	
+	public Goal(long goalId, String email, String name, String description, Date startDate, Date targetDate,
+			double currentSavings, double targetSavings, String priority) {
+		super();
+		this.goalId = goalId;
+		this.email = email;
+		this.name = name;
+		this.description = description;
+		this.startDate = startDate;
+		this.targetDate = targetDate;
+		this.currentSavings = currentSavings;
+		this.targetSavings = targetSavings;
+		this.priority = priority;
+	}
+
+	public long getGoalId() {
+		return goalId;
+	}
+
+	public void setGoalId(long goalId) {
+		this.goalId = goalId;
+	}
+
 	@Column
 	private double currentSavings;
 	
