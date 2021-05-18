@@ -1,7 +1,6 @@
-<<<<<<< HEAD
-=======
 
->>>>>>> df9b424f8fb28b4548ccfd225d50ab88f397405e
+
+
 package TrackBook.TrackBookAPI.Repositories;
 
 import java.util.List;
@@ -14,18 +13,14 @@ import TrackBook.TrackBookAPI.Models.Goal;
 public interface GoalRepository extends JpaRepository<Goal, String> {
 	//Optional<Goal> findById(long id);
 	List<Goal> findAll();
-<<<<<<< HEAD
-	Optional<Goal> findByEmail(String email);
-	//Optional<Goal> findByGoalId(int goalId);
+
+	List<Goal> findByEmail(String email);
+	
 	Optional<Goal> findByGoalId(long goalId);
+
+	void deleteBygoalId(long goalId);
 	
 	//Optional<Goal> findAllByEmail(String email); 
 }
-=======
-	Optional<Goal> findByEmail(String email); 
-<<<<<<< HEAD
-}
-=======
-}
->>>>>>> df9b424f8fb28b4548ccfd225d50ab88f397405e
->>>>>>> 30928d9fc1fa8d829a35c4087812bbe42688bc11
+
+

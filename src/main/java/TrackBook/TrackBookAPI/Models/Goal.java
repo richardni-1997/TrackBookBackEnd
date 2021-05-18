@@ -17,7 +17,7 @@ public class Goal {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long goalId;
 	
-
+	@Column
 	private String email;
 	
 	@Column
@@ -32,28 +32,6 @@ public class Goal {
 	@Column
 	private Date targetDate;
 	
-	public Goal(long goalId, String email, String name, String description, Date startDate, Date targetDate,
-			double currentSavings, double targetSavings, String priority) {
-		super();
-		this.goalId = goalId;
-		this.email = email;
-		this.name = name;
-		this.description = description;
-		this.startDate = startDate;
-		this.targetDate = targetDate;
-		this.currentSavings = currentSavings;
-		this.targetSavings = targetSavings;
-		this.priority = priority;
-	}
-
-	public long getgoalId() {
-		return goalId;
-	}
-
-	public void setgoalId(long goalId) {
-		this.goalId = goalId;
-	}
-
 	@Column
 	private double currentSavings;
 	
@@ -63,31 +41,39 @@ public class Goal {
 	@Column
 	private String priority;
 	
-	public Goal() {
-		
+//	public Goal( String email, String name, String description, Date startDate, Date targetDate,
+//			double currentSavings, double targetSavings, String priority) {
+//		super();
+//		//this.goalId = goalId;
+//		this.email = email;
+//		this.name = name;
+//		this.description = description;
+//		this.startDate = startDate;
+//		this.targetDate = targetDate;
+//		this.currentSavings = currentSavings;
+//		this.targetSavings = targetSavings;
+//		this.priority = priority;
+//	}
+
+	public long getgoalId() {
+		return goalId;
 	}
 
-	public Goal(String email, String name, String description, Date startDate, Date targetDate, double currentSavings,
-			double targetSavings, String priority) {
-		super();
-		this.email = email;
-		this.name = name;
-		this.description = description;
-		this.startDate = startDate;
-		this.targetDate = targetDate;
-		this.currentSavings = currentSavings;
-		this.targetSavings = targetSavings;
-		this.priority = priority;
+	public void setgoalId(long goalId) {
+		this.goalId = goalId;
 	}
 
 	
+	
+	
+	
 
-	@Override
-	public String toString() {
-		return "Goal [goalId=" + goalId + ", email=" + email + ", name=" + name + ", description=" + description
-				+ ", startDate=" + startDate + ", targetDate=" + targetDate + ", currentSavings=" + currentSavings
-				+ ", targetSavings=" + targetSavings + ", priority=" + priority + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "Goal [goalId=" + goalId + ", email=" + email + ", name=" + name + ", description=" + description
+//				+ ", startDate=" + startDate + ", targetDate=" + targetDate + ", currentSavings=" + currentSavings
+//				+ ", targetSavings=" + targetSavings + ", priority=" + priority + "]";
+//	}
 
 	public String getEmail() {
 		return email;
@@ -152,6 +138,24 @@ public class Goal {
 	public void setPriority(String priority) {
 		this.priority = priority;
 	}
+	
+	public Goal() {
+		
+	}
+
+	public Goal(String email, String name, String description, Date startDate, Date targetDate, double currentSavings,
+			double targetSavings, String priority) {
+		super();
+		this.email = email;
+		this.name = name;
+		this.description = description;
+		this.startDate = startDate;
+		this.targetDate = targetDate;
+		this.currentSavings = currentSavings;
+		this.targetSavings = targetSavings;
+		this.priority = priority;
+	}
+
 	
 	
 }
